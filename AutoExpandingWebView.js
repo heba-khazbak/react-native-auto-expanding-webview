@@ -7,7 +7,7 @@ const CONTENT_HEIGHT_MESSAGE = 'CONTENT_HEIGHT_MESSAGE';
 const getContentHeightScript = `
   function sendHeight() {
     if (window.postMessage.length === 1) {
-      var contentHeight = document.body.clientHeight;
+      var contentHeight = document.body.clientHeight + 40;
       window.postMessage('${CONTENT_HEIGHT_MESSAGE}' + contentHeight);
     } else {
       setTimeout(sendHeight, 100);
@@ -76,7 +76,7 @@ export default class AutoExpandingWebView extends React.PureComponent {
           onMessage={this.onMessage}
           injectedJavaScript={getContentHeightScript + this.props.injectedJavaScript}
           scrollEnabled={false}
-          scalesPageToFit={false}
+          scalesPageToFit={true}
           javaScriptEnabled
         />
       </View>
