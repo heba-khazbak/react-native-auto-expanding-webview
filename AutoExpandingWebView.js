@@ -74,7 +74,7 @@ export default class AutoExpandingWebView extends React.PureComponent {
           ref={(webview) => { this.webview = webview; }}
           style={[this.props.style, { height: this.state.contentHeight }]}
           onMessage={this.onMessage}
-          injectedJavaScript={getContentHeightScript + this.props.injectedJavaScript}
+          injectedJavaScript={this.props.injectedJavaScript + getContentHeightScript }
           scrollEnabled={false}
           scalesPageToFit={true}
           javaScriptEnabled
