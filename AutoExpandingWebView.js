@@ -9,6 +9,7 @@ const getContentHeightScript = `
     if (window.postMessage.length === 1) {
       var contentHeight = document.body.clientHeight + 40;
       window.postMessage('${CONTENT_HEIGHT_MESSAGE}' + contentHeight);
+      setTimeout(() => window.postMessage('${CONTENT_HEIGHT_MESSAGE}' + contentHeight), 100);
     } else {
       setTimeout(sendHeight, 100);
     }
