@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, WebView, ViewPropTypes } from 'react-native';
+import { View, WebView, ViewPropTypes, Platform } from 'react-native';
 
 const CONTENT_HEIGHT_MESSAGE = 'CONTENT_HEIGHT_MESSAGE';
 
@@ -33,7 +33,7 @@ export default class AutoExpandingWebView extends React.PureComponent {
     super(props);
 
     this.state = {
-      contentHeight: null,
+      contentHeight: Platform.OS == 'ios' ? null : 300,
     };
 
     this.onMessage = this.onMessage.bind(this);
